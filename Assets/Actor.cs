@@ -1,19 +1,20 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Actor : MonoBehaviour
 {
     private static long globalId = 0L; 
     
-    public string          type;
-    public long            id;
-    public string          description;
-    public Environment     environment;
-    public List<Collision> collisions;
-
-    public Vector2 position;
-    public Vector3 rotation;
-    public Vector2 scale;
+    [SerializeField] public string type;
+    [SerializeField] public long   id;
+    [SerializeField] public string description;
+    
+    [NonSerialized] public Environment     environment;
+    [NonSerialized] public List<Collision> collisions;
+    [NonSerialized] public Vector2         position;
+    [NonSerialized] public Vector3         rotation;
+    [NonSerialized] public Vector2         scale;
 
 
     private void Start()

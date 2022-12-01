@@ -14,6 +14,7 @@ public class PlayerCamera : MonoBehaviour
     {
         StartMove();
         MoveCamera();
+        MoveCameraKeyboard();
         ZoomCamera();
     }
 
@@ -31,6 +32,16 @@ public class PlayerCamera : MonoBehaviour
         var currentPoint = (Vector2)camera.ScreenToWorldPoint(Input.mousePosition);
         var diff         = lastMovePoint - currentPoint;
         transform.Translate(diff.x, diff.y, 0);
+    }
+
+
+    private void MoveCameraKeyboard()
+    {
+        var movement = Vector2.zero;
+
+        movement.x = Input.GetAxis("Horizontal");
+        movement.y = Input.GetAxis("Vertical");
+        transform.Translate(movement);
     }
 
 

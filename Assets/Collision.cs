@@ -2,11 +2,11 @@
 
 public class Collision : MonoBehaviour
 {
-    public Vector2 position;
-    public Actor   parent;
-    public Chunk   chunk;
-    public float   walkSpeed;
-
+    [SerializeField] public Vector2 position;
+    [SerializeField] public Actor   parent;
+    [SerializeField] public Chunk   chunk;
+    [SerializeField] public float   walkSpeed;
+    
 
     private void Start()
     {

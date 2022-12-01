@@ -6,10 +6,9 @@ public class Selectable : MonoBehaviour
 
     [SerializeField] private Actor            actor;
     [SerializeField] private SpriteRenderer[] renderers;
-
-    public Color selectedColor   = new(1, 0.5f, 0.5f, 1);
-    public Color unselectedColor = new(1, 1, 1, 1);
-    public bool  isSelected      = false;
+    [SerializeField] public  Color            selectedColor   = new(1, 0.5f, 0.5f, 1);
+    [SerializeField] public  Color            unselectedColor = new(1, 1, 1, 1);
+    [SerializeField] public  bool             isSelected      = false;
 
 
     private void UpdateColor()

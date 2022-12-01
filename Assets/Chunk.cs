@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -5,16 +6,17 @@ using Random = UnityEngine.Random;
 
 public class Chunk : MonoBehaviour
 {
-    public const             int          chunkSize = 64;
+    [NonSerialized] public const             int          chunkSize = 64;
     [SerializeField] private Tilemap      tilemap;
     [SerializeField] private TileBase[]   grassTiles;
     [SerializeField] private TileBase[]   flowerTiles;
     [SerializeField] private GameObject[] rocks;
     [SerializeField] private GameObject[] trees;
 
-    public Environment     environment;
-    public List<Collision> collisions = new();
-    public Vector2         position;
+    [NonSerialized] public Environment     environment;
+    [NonSerialized] public List<Collision> collisions = new();
+    [NonSerialized] public Vector2         position;
+    
 
     void Start()
     {

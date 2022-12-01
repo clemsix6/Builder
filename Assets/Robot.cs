@@ -2,8 +2,9 @@
 
 public class Robot : MonoBehaviour
 {
-    [SerializeField] public Actor actor;
-    [SerializeField] public Pawn  pawn;
+    [SerializeField] public Actor     actor;
+    [SerializeField] public Pawn      pawn;
+    [SerializeField] public Inventory inventory;
 
     private float          lastExecutionTime;
     private string         program;

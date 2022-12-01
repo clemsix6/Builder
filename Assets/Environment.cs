@@ -7,12 +7,11 @@ using UnityEngine;
 
 public class Environment : MonoBehaviour
 {
-    [SerializeField] private Chunk               chunkPrefab;
-
-    public List<Chunk>     chunks;
-    public List<Actor>     actors;
-    public List<Robot>     robots;
-    public List<Collision> collisions;
+    [SerializeField] private Chunk           chunkPrefab;
+    [SerializeField] public  List<Chunk>     chunks;
+    [SerializeField] public  List<Actor>     actors;
+    [SerializeField] public  List<Robot>     robots;
+    [SerializeField] public  List<Collision> collisions;
 
 
     private IEnumerator Start()
