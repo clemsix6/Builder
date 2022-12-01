@@ -177,8 +177,10 @@ GameObject:
   - component: {fileID: 5612097552163536819}
   - component: {fileID: 8472052529195251516}
   - component: {fileID: 9219260834515454323}
+  - component: {fileID: 2269151695002625014}
   - component: {fileID: 8965681520617149621}
   - component: {fileID: 3047949230324152098}
+  - component: {fileID: 1790482545209853572}
   m_Layer: 0
   m_Name: Tree_1
   m_TagString: Tree
@@ -216,6 +218,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: tree
+  id: 0
+  description: Trees can be broken to harvest wood.
   environment: {fileID: 0}
   collisions:
   - {fileID: 6265028668678327817}
@@ -234,6 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b033640c62f0da845bcdd1c0eb78b6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actor: {fileID: 8472052529195251516}
   renderers:
   - {fileID: 2391527311932372379}
   - {fileID: 4358311696904092299}
@@ -241,6 +246,33 @@ MonoBehaviour:
   selectedColor: {r: 1, g: 0.5, b: 0.5, a: 1}
   unselectedColor: {r: 1, g: 1, b: 1, a: 1}
   isSelected: 0
+--- !u!114 &2269151695002625014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6309110349281927397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5ab7a4eecce5124492463bc0bd9d429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actor: {fileID: 8472052529195251516}
+  hp: 10
+  lootOnHit:
+  - itemId: wood
+    lootChance: 100
+    lootMaxCount: 100
+  - itemId: stone
+    lootChance: 100
+    lootMaxCount: 100
+  - itemId: gold
+    lootChance: 100
+    lootMaxCount: 100
+  - itemId: emerald
+    lootChance: 100
+    lootMaxCount: 100
 --- !u!58 &8965681520617149621
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -283,6 +315,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.75, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &1790482545209853572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6309110349281927397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5ab7a4eecce5124492463bc0bd9d429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actor: {fileID: 0}
+  hp: 10
+  lootOnHit: []
 --- !u!1 &7560422095858958115
 GameObject:
   m_ObjectHideFlags: 0

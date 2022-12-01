@@ -8,7 +8,7 @@ namespace Cainos.PixelArtTopDown_Basic
     public class CameraFollow : MonoBehaviour
     {
         public Transform target;
-        public float lerpSpeed = 1.0f;
+        public float     lerpSpeed = 1.0f;
 
         private Vector3 offset;
 
@@ -25,9 +25,8 @@ namespace Cainos.PixelArtTopDown_Basic
         {
             if (target == null) return;
 
-            targetPos = target.position + offset;
+            targetPos          = target.position + offset;
             transform.position = Vector3.Lerp(transform.position, targetPos, lerpSpeed * Time.deltaTime);
         }
-
     }
 }

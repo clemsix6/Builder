@@ -5,16 +5,16 @@ using Random = UnityEngine.Random;
 
 public class Chunk : MonoBehaviour
 {
-    public const int chunkSize = 64;
-    [SerializeField] private Tilemap tilemap;
-    [SerializeField] private TileBase[] grassTiles;
-    [SerializeField] private TileBase[] flowerTiles;
+    public const             int          chunkSize = 64;
+    [SerializeField] private Tilemap      tilemap;
+    [SerializeField] private TileBase[]   grassTiles;
+    [SerializeField] private TileBase[]   flowerTiles;
     [SerializeField] private GameObject[] rocks;
     [SerializeField] private GameObject[] trees;
 
-    public Environment environment;
+    public Environment     environment;
     public List<Collision> collisions = new();
-    public Vector2 position;
+    public Vector2         position;
 
     void Start()
     {
@@ -45,10 +45,10 @@ public class Chunk : MonoBehaviour
             for (var y = 0; y < chunkSize; y++)
             {
                 var rndTile = Random.value < 0.5
-                    ? grassTiles[0]
-                    : Random.value < 0.8
-                        ? grassTiles[Random.Range(0, grassTiles.Length)]
-                        : flowerTiles[Random.Range(0, flowerTiles.Length)];
+                                  ? grassTiles[0]
+                                  : Random.value < 0.8
+                                      ? grassTiles[Random.Range(0,  grassTiles.Length)]
+                                      : flowerTiles[Random.Range(0, flowerTiles.Length)];
                 tilemap.SetTile(new Vector3Int(x, y, 0), rndTile);
             }
         }

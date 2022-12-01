@@ -3,17 +3,22 @@ using UnityEngine;
 
 public class Actor : MonoBehaviour
 {
-    public string type;
-    public Environment environment;
+    private static long globalId = 0L; 
+    
+    public string          type;
+    public long            id;
+    public string          description;
+    public Environment     environment;
     public List<Collision> collisions;
 
     public Vector2 position;
     public Vector3 rotation;
     public Vector2 scale;
 
-    
+
     private void Start()
     {
+        id = globalId++;
         if (environment == null)
             environment = GameObject.Find("Environment").GetComponent<Environment>();
         environment.actors.Add(this);
@@ -33,7 +38,7 @@ public class Actor : MonoBehaviour
     {
         position = transform.position;
         rotation = transform.eulerAngles;
-        scale = transform.localScale;
+        scale    = transform.localScale;
     }
 
 

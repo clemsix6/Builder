@@ -8,15 +8,15 @@ namespace Cainos.PixelArtTopDown_Basic
     public class SpriteColorAnimation : MonoBehaviour
     {
         public Gradient gradient;
-        public float time;
+        public float    time;
 
         private SpriteRenderer sr;
-        private float timer;
+        private float          timer;
 
         private void Start()
         {
             timer = time * Random.value;
-            sr = GetComponent<SpriteRenderer>();
+            sr    = GetComponent<SpriteRenderer>();
         }
 
         private void Update()

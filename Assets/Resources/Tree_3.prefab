@@ -227,6 +227,7 @@ GameObject:
   - component: {fileID: 6293661520337429084}
   - component: {fileID: 8009504399127472851}
   - component: {fileID: 8140598876367231401}
+  - component: {fileID: -6374981783347823579}
   - component: {fileID: 2882364866606640636}
   - component: {fileID: 7070213548219841719}
   m_Layer: 0
@@ -266,6 +267,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: tree
+  id: 0
+  description: Trees can be broken to harvest wood.
   environment: {fileID: 0}
   collisions:
   - {fileID: 5495628850744251366}
@@ -284,6 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b033640c62f0da845bcdd1c0eb78b6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actor: {fileID: 8009504399127472851}
   renderers:
   - {fileID: 6041375308957122081}
   - {fileID: 5664678250988581169}
@@ -291,6 +295,24 @@ MonoBehaviour:
   selectedColor: {r: 1, g: 0.5, b: 0.5, a: 1}
   unselectedColor: {r: 1, g: 1, b: 1, a: 1}
   isSelected: 0
+--- !u!114 &-6374981783347823579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5565263163273428234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5ab7a4eecce5124492463bc0bd9d429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actor: {fileID: 8009504399127472851}
+  hp: 10
+  lootOnHit:
+  - itemId: wood
+    lootChance: 100
+    lootMaxCount: 100
 --- !u!58 &2882364866606640636
 CircleCollider2D:
   m_ObjectHideFlags: 0

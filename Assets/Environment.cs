@@ -7,41 +7,24 @@ using UnityEngine;
 
 public class Environment : MonoBehaviour
 {
-    [SerializeField] private Chunk chunkPrefab;
-    public static string robotScript;
-    
-    public List<Chunk> chunks;
-    public List<Actor> actors;
+    [SerializeField] private Chunk               chunkPrefab;
+
+    public List<Chunk>     chunks;
+    public List<Actor>     actors;
+    public List<Robot>     robots;
     public List<Collision> collisions;
 
 
     private IEnumerator Start()
     {
-        AppData();
-        
-        for (var x = 0; x < 3; x++)
+        for (var x = 0; x < 10; x++)
         {
-            for (var y = 0; y < 3; y++)
+            for (var y = 0; y < 10; y++)
             {
                 GenerateChunk(new Vector2(x * Chunk.chunkSize, y * Chunk.chunkSize));
                 yield return new WaitForEndOfFrame();
             }
         }
-    }
-
-
-    private void AppData()
-    {
-        const string defaultCode = "Debug.Log('Test');";
-        var separator = Path.DirectorySeparatorChar;
-        var appData = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData);
-        var builderPath = appData + separator + "Builder";
-        robotScript = builderPath + separator + "script.js";
-
-        if (!Directory.Exists(builderPath))
-            Directory.CreateDirectory(builderPath);
-        if (!File.Exists(robotScript))
-            File.WriteAllText(robotScript, defaultCode);
     }
 
 
@@ -66,14 +49,14 @@ public class Environment : MonoBehaviour
         chunkObject.name = $"chunk_{x}_{y}";
         var chunk = chunkObject.GetComponent<Chunk>();
         chunk.environment = this;
-        lock(chunks) chunks.Add(chunk);
+        lock (chunks) chunks.Add(chunk);
         return chunk;
     }
-    
+
 
     public float GetWalkSpeed(Vector2 point)
     {
-        var chunk = GetChunk(point);
+        var chunk     = GetChunk(point);
         var collision = chunk.collisions.Find(x => x.GetWorldPosition() == point);
         if (collision != null)
             return collision.walkSpeed;

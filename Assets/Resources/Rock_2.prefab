@@ -266,6 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: rock
+  id: 0
   environment: {fileID: 0}
   collisions:
   - {fileID: 5841714685391096198}
@@ -284,6 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b033640c62f0da845bcdd1c0eb78b6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actor: {fileID: 5841714685541100253}
   renderers:
   - {fileID: 4393916039037646220}
   selectedColor: {r: 1, g: 0.5, b: 0.5, a: 1}

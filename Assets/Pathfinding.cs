@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Pathfinding
 {
-    private const int maxDistance = 10000;
-    private Environment environment;
-    private Vector2 start;
-    private Vector2 target;
-    private Dictionary<Vector2, Node> nodes;
+    private const int                       maxDistance = 10000;
+    private       Environment               environment;
+    private       Vector2                   start;
+    private       Vector2                   target;
+    private       Dictionary<Vector2, Node> nodes;
 
-    
+
     public Pathfinding(Environment environment, Vector2 start, Vector2 target)
     {
         this.environment = environment;
-        this.start = start;
-        this.target = target;
-        this.nodes = new Dictionary<Vector2, Node>();
+        this.start       = start;
+        this.target      = target;
+        this.nodes       = new Dictionary<Vector2, Node>();
     }
 
 
@@ -27,8 +27,10 @@ public class Pathfinding
         TakeDirection(start, 0);
         SmoothPath(start, 0);
 
-        for (int i = 0; i < maxDistance && path.First() != start; i++)
+        for (var i = 0; path.First() != start; i++)
         {
+            if (i >= maxDistance)
+                return new List<Vector2>();
             if (!Walk(path))
                 break;
         }
@@ -42,10 +44,10 @@ public class Pathfinding
         if (!nodes.TryGetValue(point, out var node) || node.distance != -1)
             return;
         nodes[point].distance = distance;
-        
+
         foreach (var direction in new[] { Vector2.up, Vector2.down, Vector2.right, Vector2.left })
         {
-            var pos = point + direction;
+            var pos = point          + direction;
             SmoothPath(pos, distance + 1);
         }
     }
@@ -64,7 +66,7 @@ public class Pathfinding
                 continue;
             directions.Add((pos, score.Value));
         }
-        
+
         foreach (var pos in directions.OrderByDescending(x => x.Item2))
         {
             if (nodes.ContainsKey(target))
@@ -81,7 +83,7 @@ public class Pathfinding
         nodes.Add(point, new Node());
     }
 
-    
+
     private float? GetPointScore(Vector2 point, int distance)
     {
         if (nodes.ContainsKey(point))
@@ -93,9 +95,9 @@ public class Pathfinding
 
     private bool Walk(List<Vector2> path)
     {
-        var minDistance = float.MaxValue;
-        Vector2? step = null;
-        
+        var      minDistance = float.MaxValue;
+        Vector2? step        = null;
+
         foreach (var direction in new[] { Vector2.up, Vector2.down, Vector2.right, Vector2.left })
         {
             var pos = path.First() + direction;
@@ -103,9 +105,9 @@ public class Pathfinding
                 value.distance >= minDistance)
                 continue;
             minDistance = value.distance;
-            step = pos;
+            step        = pos;
         }
-        
+
         if (step == null)
             return false;
         path.Insert(0, step.Value);
@@ -119,7 +121,7 @@ public class Pathfinding
 
 
         public Node()
-        {   
+        {
             this.distance = -1;
         }
     }

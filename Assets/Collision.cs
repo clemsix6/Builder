@@ -3,9 +3,9 @@
 public class Collision : MonoBehaviour
 {
     public Vector2 position;
-    public Actor parent;
-    public Chunk chunk;
-    public float walkSpeed;
+    public Actor   parent;
+    public Chunk   chunk;
+    public float   walkSpeed;
 
 
     private void Start()
@@ -22,7 +22,7 @@ public class Collision : MonoBehaviour
 
     public void UpdateChunk()
     {
-        var pos = position + (Vector2)parent.transform.position;
+        var pos      = position + (Vector2)parent.transform.position;
         var newChunk = parent.environment.GetChunk(pos);
         if (newChunk == null)
             newChunk = parent.environment.GenerateChunk(pos);
